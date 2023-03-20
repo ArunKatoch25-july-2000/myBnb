@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Blinker&family=Tilt+Warp&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#root {
+  overflow-x: hidden;
+}
+/* .swiper-button-prev,
+.swiper-button-next {
+
+} */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 0.7rem !important;
+  padding: 0.6rem 0.7rem !important;
+  color: rgb(70, 70, 70) !important;
+  background-color: white !important;
+  border-radius: 10rem !important;
+}
+.swiper-pagination-bullet {
+  background-color: white !important;
+}
+
+.rdrDefinedRangesWrapper{
+  display: none !important;
+}
