@@ -5,10 +5,16 @@ import Europe from "../assets/Europe.png";
 import SouthEastAsia from "../assets/SouthEastAsia.png";
 import UnitedKingdom from "../assets/UnitedKingdom.png";
 import WorldMap from "../assets/WorldMap.png";
-const BottomNavDestinationTabDetails = () => {
+const BottomNavDestinationTabDetails = ({ bottomNavStyles }) => {
   return (
     <>
-      <div className="w-[97%] h-[28rem] flex flex-col gap-2 border rounded-[2.5rem] absolute   bg-white z-30 bottom-[-36rem] shadow-xl p-1 sm:w-[90%] sm:h-[28rem] sm:left-[2.5rem]   sm:bottom-[-28rem] lg:w-[31rem] lg:bottom-[-27.8rem] lg:p-10">
+      <div
+        className={
+          !bottomNavStyles
+            ? "w-[97%] h-[28rem] flex flex-col gap-2 border rounded-[2.5rem] absolute   bg-white z-30 bottom-[-36rem] shadow-xl p-1 sm:w-[90%] sm:h-[28rem] sm:left-[2.5rem]   sm:bottom-[-28rem] lg:w-[31rem] lg:bottom-[-27.8rem] lg:p-10"
+            : "w-[97%] h-[28rem] flex flex-col gap-2 border rounded-[2.5rem] absolute   bg-white z-30 bottom-[-41rem] shadow-xl p-1 sm:w-[90%] sm:h-[28rem] sm:left-[2.5rem] sm:bottom-[-33rem] lg:w-[31rem] lg:bottom-[-32.8rem] lg:p-10"
+        }
+      >
         <div className="w-full pl-5">
           <span className="text-sm  font-bold">Search by region</span>
         </div>

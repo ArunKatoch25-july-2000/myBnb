@@ -11,10 +11,9 @@ import BottomNavCheckInOut from "./BottomNavCheckInOut";
 import BottomNavAddGuests from "./BottomNavAddGuests";
 import PlacesNav from "./PlacesNav";
 import SearchSuggestions from "./SearchSuggestions";
-import format from "date-fns/format";
 import { addDays } from "date-fns";
 
-const Navbar = () => {
+const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
   const [userContainer, setUserContainer] = useState(false);
   const [innerNav, setInnerNav] = useState(false);
   const [experienceTab, setExperienceTab] = useState("");
@@ -180,6 +179,7 @@ const Navbar = () => {
             tab2ClickHandler={tab2ClickHandler}
             tab3ClickHandler={tab3ClickHandler}
             tab4ClickHandler={tab4ClickHandler}
+            placeDetailsOuterNav={placeDetailsOuterNav}
           />
         ) : (
           <InnerNav
@@ -247,7 +247,9 @@ const Navbar = () => {
       )}
 
       {/* ------------------------ Bottom Navigation Details -------------------- */}
-      {bottomNavTab1Details === "show" && <BottomNavDestinationTabDetails />}
+      {bottomNavTab1Details === "show" && (
+        <BottomNavDestinationTabDetails bottomNavStyles={bottomNavStyles} />
+      )}
       {searchsuggestionsDiv && <SearchSuggestions input={input} />}
       {bottomNavTab2Details === "show" && (
         <BottomNavCheckInOut
@@ -256,14 +258,19 @@ const Navbar = () => {
           setFullDate={setFullDate}
           setCheckIn={setCheckIn}
           setCheckOut={setCheckOut}
+          bottomNavStyles={bottomNavStyles}
         />
       )}
       {bottomNavTab3Details === "show" && (
-        <BottomNavAddGuests setGuests={setGuests} />
+        <BottomNavAddGuests
+        guests={guests}
+          setGuests={setGuests}
+          bottomNavStyles={bottomNavStyles}
+        />
       )}
 
       {/* ------------------------ Places Navigation --------------------------*/}
-      <PlacesNav />
+      {!hidePlacesNav && <PlacesNav />}
     </div>
   );
 };

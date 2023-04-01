@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsDashCircle, BsPlusCircle } from "react-icons/bs";
 
-const BottomNavAddGuests = ({ setGuests }) => {
+const BottomNavAddGuests = ({ setGuests, bottomNavStyles }) => {
   const [adults, setAdults] = useState(0);
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
@@ -53,11 +53,22 @@ const BottomNavAddGuests = ({ setGuests }) => {
     }
   };
 
+  useEffect(() => {
+    setGuests(`${adults + children + infants + pets}  guests`);
+  }, [adults, infants, children, pets]);
+
   return (
     <>
       <div
-        className="w-full h-[20rem] flex flex-col border bg-white shadow-lg  absolute right-0 bottom-[-27.5rem] rounded-[2.5rem] pt-1 px-1 z-30 select-none sm:right-[1rem] sm:w-[26.5rem] sm:px-10 sm:bottom-[-19.5rem] xl:right-[15rem]"
-        onClick={setGuests(adults + children + infants + pets + " guests")}
+        className={
+          !bottomNavStyles
+            ? "w-full h-[20rem] flex flex-col border bg-white shadow-lg  absolute right-0 bottom-[-27.5rem] rounded-[2.5rem] pt-1 px-1 z-30 select-none sm:right-[1rem] sm:w-[26.5rem] sm:px-10 sm:bottom-[-19.5rem] xl:right-[15rem]"
+            : "w-full h-[20rem] flex flex-col border bg-white shadow-lg  absolute right-0 bottom-[-33.5rem] rounded-[2.5rem] pt-1 px-1 z-30 select-none sm:right-[1rem] sm:w-[26.5rem] sm:px-10 sm:bottom-[-24.8rem] xl:right-[15rem]"
+        }
+        onClick={(e) => {
+          e.stopPropagation();
+          setGuests(`${adults + children + infants + pets}  guests`);
+        }}
       >
         <div className="w-full flex flex-col relative justify-center border-b py-3">
           <span className="text-lg font-semibold">Adults</span>

@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import ForgotPassword from "./components/ForgotPassword";
+import Placedetails from "./components/Placedetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/forgot" element={<ForgotPassword />} />
+          <Route exact path="/placedetails/:id" element={<Placedetails />} />
         </Routes>
       </BrowserRouter>
     </>

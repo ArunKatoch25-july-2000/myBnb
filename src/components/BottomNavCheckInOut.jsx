@@ -7,6 +7,7 @@ const BottomNavCheckInOut = ({
   setFullDate,
   setCheckIn,
   setCheckOut,
+  bottomNavStyles,
 }) => {
   const [toogleDates, setToogleDates] = useState({
     chooseDates:
@@ -17,7 +18,13 @@ const BottomNavCheckInOut = ({
 
   return (
     <>
-      <div className="w-full h-[29rem] flex flex-col border shadow-lg absolute bottom-[-36.6rem] bg-white rounded-[2.5rem] px-1 z-30 sm:bottom-[-28.6rem] lg:w-[51rem] lg:left-[17rem] lg:px-10">
+      <div
+        className={
+          !bottomNavStyles
+            ? "w-full h-[29rem] flex flex-col border shadow-lg absolute bottom-[-36.6rem] bg-white rounded-[2.5rem] px-1 z-30 sm:bottom-[-28.6rem] lg:w-[51rem] lg:left-[17rem] lg:px-10"
+            : "w-full h-[29rem] flex flex-col border shadow-lg absolute bottom-[-41.6rem] bg-white rounded-[2.5rem] px-1 z-30 sm:bottom-[-33.6rem] lg:w-[51rem] lg:left-[17rem] lg:px-10"
+        }
+      >
         {/* toggle choose Dates and Flexible Dates  */}
         <div className="w-full flex items-center justify-center">
           <div className="w-[20rem] rounded-full flex bg-gray-200 p-1 my-2 items-center justify-center gap-1">
