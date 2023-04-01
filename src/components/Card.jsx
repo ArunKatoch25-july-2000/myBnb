@@ -20,7 +20,7 @@ const Card = ({ elem }) => {
   return (
     <Link to={`/placedetails/${elem.id}`} target="_blank">
       <div
-        className="h-[32rem] w-[98%] flex flex-col bg-white cursor-pointer relative sm:w-[18rem] sm:h-[26rem]"
+        className="h-[25rem] w-[90vw] flex flex-col bg-white cursor-pointer relative sm:w-[18rem] sm:h-[26rem]"
         id={elem.id}
         onMouseOver={() => {
           setNavIcons(true);
@@ -38,7 +38,7 @@ const Card = ({ elem }) => {
           pagination={navIcons}
           navigation={navIcons}
           modules={[Pagination, Navigation]}
-          className=" bg-white h-[24rem] w-full p-0 sm:h-[18rem]"
+          className=" bg-white h-[23rem] w-full p-0 sm:h-[18rem]"
         >
           {elem.imgSrc.map((src, i) => (
             <SwiperSlide key={i}>
@@ -61,7 +61,7 @@ const Card = ({ elem }) => {
         </div>
         {/* ******************************************************** */}
         <div className="flex items-center justify-between py-1">
-          <span className="text-xs font-semibold sm:text-sm lg:text-lg">
+          <span className="text-sm font-semibold sm:text-sm lg:text-lg">
             {elem.location}
           </span>
           <span className="flex gap-2 items-center text-gray-700 text-xs sm:text-base">
