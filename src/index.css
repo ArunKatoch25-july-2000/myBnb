@@ -5,6 +5,7 @@
 
 #root {
   overflow-x: hidden;
+  user-select: none;
 }
 /* .swiper-button-prev,
 .swiper-button-next {
@@ -22,6 +23,6 @@
   background-color: white !important;
 }
 
-.rdrDefinedRangesWrapper{
+.rdrDefinedRangesWrapper {
   display: none !important;
 }

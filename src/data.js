@@ -14,6 +14,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹19,933`,
     rating: `4.79`,
+    catagory: `Hill Stations`,
   },
   {
     id: 1,
@@ -30,6 +31,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹8000`,
     rating: `4.5`,
+    catagory: `Hill Stations`,
   },
   {
     id: 2,
@@ -44,6 +46,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹45,000`,
     rating: `5.0`,
+    catagory: `Beaches`,
   },
   {
     id: 3,
@@ -60,6 +63,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹19,933`,
     rating: `4.79`,
+    catagory: `Swimming pools`,
   },
   {
     id: 4,
@@ -75,6 +79,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹19,933`,
     rating: `4.88`,
+    catagory: `Cottages`,
   },
   {
     id: 5,
@@ -89,6 +94,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹5,705`,
     rating: `5.0`,
+    catagory: `Tree Houses`,
   },
   {
     id: 6,
@@ -105,6 +111,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹15,385`,
     rating: `7.5`,
+    catagory: `Cottages`,
   },
   {
     id: 7,
@@ -121,6 +128,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹3,422`,
     rating: `3.45`,
+    catagory: `Hill Stations`,
   },
   {
     id: 8,
@@ -137,6 +145,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹12,999`,
     rating: `6.75`,
+    catagory: `Hill Stations`,
   },
   {
     id: 9,
@@ -151,6 +160,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹15,550`,
     rating: `4.75`,
+    catagory: `Desert`,
   },
   {
     id: 10,
@@ -166,6 +176,7 @@ const data = [
     date: `10-15 Mar`,
     price: `₹5,000`,
     rating: `4.5`,
+    catagory: `Plains`,
   },
   {
     id: 11,
@@ -182,6 +193,37 @@ const data = [
     date: `10-15 Mar`,
     price: `₹54,999`,
     rating: `7.75`,
+    catagory: `Islands`,
+  },
+  {
+    id: 12,
+    imgSrc: [
+      `https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1378&q=80`,
+      `https://images.unsplash.com/photo-1601189992152-6ef7ebb531a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80`,
+      `https://images.unsplash.com/photo-1602200505110-881b74077340?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80`,
+    ],
+    location: `Baganbari - farmstay`,
+    locationDetails: `THE EARTH HOUSE`,
+    distance: `Noida`,
+    date: `10-15 Mar`,
+    price: `₹13,699`,
+    rating: `4.85`,
+    catagory: `Farms`,
+  },
+  {
+    id: 13,
+    imgSrc: [
+      `https://images.unsplash.com/photo-1619139490788-92f4a1540949?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80`,
+      `https://images.unsplash.com/photo-1579895674295-873ef536f606?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80`,
+      `https://images.unsplash.com/photo-1608569570246-22326aba8087?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80`,
+    ],
+    location: `Farm Stay in Gurugram`,
+    locationDetails: `THE Farm HOUSE`,
+    distance: `Gurugram`,
+    date: `10-15 Mar`,
+    price: `₹15,999`,
+    rating: `5.85`,
+    catagory: `Farms`,
   },
 ];
 

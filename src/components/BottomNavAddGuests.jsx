@@ -62,7 +62,7 @@ const BottomNavAddGuests = ({ setGuests, bottomNavStyles }) => {
       <div
         className={
           !bottomNavStyles
-            ? "w-full h-[20rem] flex flex-col border bg-white shadow-lg  absolute right-0 bottom-[-27.5rem] rounded-[2.5rem] pt-1 px-1 z-30 select-none sm:right-[1rem] sm:w-[26.5rem] sm:px-10 sm:bottom-[-19.5rem] xl:right-[15rem]"
+            ? "w-full h-[20rem] flex flex-col border bg-white shadow-lg  absolute right-0 bottom-[17rem] rounded-[2.5rem] pt-1 px-1 z-30 select-none sm:right-[1rem] sm:w-[26.5rem] sm:px-10 sm:bottom-[32rem] lg:bottom-[13.8rem] xl:right-[15rem]"
             : "w-full h-[20rem] flex flex-col border bg-white shadow-lg  absolute right-0 bottom-[-33.5rem] rounded-[2.5rem] pt-1 px-1 z-30 select-none sm:right-[1rem] sm:w-[26.5rem] sm:px-10 sm:bottom-[-24.8rem] xl:right-[15rem]"
         }
         onClick={(e) => {

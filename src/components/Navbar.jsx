@@ -114,6 +114,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
   const tab4ClickHandler = () => {
     setInnerNav(true);
     setShowBottomNav("show");
+    setBottomNavTab3Details("show");
     setNavBg({
       navTab1:
         "w-80 h-full pl-4 hover:bg-gray-300 border flex flex-col rounded-full justify-center bg-transparent sm:pl-10",
@@ -134,7 +135,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
       navTab1:
         "w-80 h-full pl-4 border flex flex-col rounded-full justify-center bg-white sm:pl-10",
       navTab2:
-        "w-80 flex flex-col cursor-pointer  hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
+        "w-80 flex flex-col cursor-pointer hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
       navTab3:
         "w-80 flex flex-col cursor-pointer  hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
       navTab4:
@@ -263,7 +264,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
       )}
       {bottomNavTab3Details === "show" && (
         <BottomNavAddGuests
-        guests={guests}
+          guests={guests}
           setGuests={setGuests}
           bottomNavStyles={bottomNavStyles}
         />

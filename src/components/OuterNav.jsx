@@ -34,7 +34,7 @@ const OuterNav = ({
             type="button"
             name="select guests"
             className="font-mainFont text-xs cursor-pointer -tracking-tighter text-gray-500 sm:text-base"
-            onClick={tab3ClickHandler}
+            onClick={tab4ClickHandler}
           >
             Any guests
           </button>

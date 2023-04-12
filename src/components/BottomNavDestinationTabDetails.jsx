@@ -11,7 +11,7 @@ const BottomNavDestinationTabDetails = ({ bottomNavStyles }) => {
       <div
         className={
           !bottomNavStyles
-            ? "w-[97%] h-[28rem] flex flex-col gap-2 border rounded-[2.5rem] absolute   bg-white z-30 bottom-[-36rem] shadow-xl p-1 sm:w-[90%] sm:h-[28rem] sm:left-[2.5rem]   sm:bottom-[-28rem] lg:w-[31rem] lg:bottom-[-27.8rem] lg:p-10"
+            ? "w-[97%] h-[28rem] flex flex-col gap-2 border rounded-[2.5rem] absolute   bg-white z-30 bottom-[8rem] shadow-xl p-1 sm:w-[90%] sm:h-[28rem] sm:left-[2.5rem] sm:bottom-[15rem] lg:w-[31rem] lg:bottom-[5rem] lg:p-10"
             : "w-[97%] h-[28rem] flex flex-col gap-2 border rounded-[2.5rem] absolute   bg-white z-30 bottom-[-41rem] shadow-xl p-1 sm:w-[90%] sm:h-[28rem] sm:left-[2.5rem] sm:bottom-[-33rem] lg:w-[31rem] lg:bottom-[-32.8rem] lg:p-10"
         }
       >

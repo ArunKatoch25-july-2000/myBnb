@@ -21,7 +21,7 @@ const BottomNavCheckInOut = ({
       <div
         className={
           !bottomNavStyles
-            ? "w-full h-[29rem] flex flex-col border shadow-lg absolute bottom-[-36.6rem] bg-white rounded-[2.5rem] px-1 z-30 sm:bottom-[-28.6rem] lg:w-[51rem] lg:left-[17rem] lg:px-10"
+            ? "w-full h-[29rem] flex flex-col border shadow-lg absolute bottom-[8rem] bg-white rounded-[2.5rem] px-1 z-30 sm:bottom-[5rem] lg:w-[51rem] lg:left-[17rem] lg:px-10"
             : "w-full h-[29rem] flex flex-col border shadow-lg absolute bottom-[-41.6rem] bg-white rounded-[2.5rem] px-1 z-30 sm:bottom-[-33.6rem] lg:w-[51rem] lg:left-[17rem] lg:px-10"
         }
       >
