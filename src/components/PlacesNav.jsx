@@ -23,8 +23,8 @@ import {
 import { TbBeach } from "react-icons/tb";
 import { FaBed } from "react-icons/fa";
 
-const PlacesNav = () => {
-  const [apiData, setApiData] = useState(data);
+const PlacesNav = ({ apiData, setApiData }) => {
+  // const [apiData, setApiData] = useState(data);
   const [displayFilterDiv, setDisplayFilterDiv] = useState(false);
 
   const filterDivBtnsCss =
@@ -58,6 +58,7 @@ const PlacesNav = () => {
     iconHeading:
       "text-sm font-light text-left flex items-center flex-col px-2 pb-2 gap-1 cursor-pointer text-gray-500  hover:text-gray-800 hover:border-b hover:border-black sm:px-5",
   };
+
   return (
     <>
       <div className="flex items-center justify-center w-screen h-24 relative border sm:px-2 lg:px-10">
@@ -380,7 +381,9 @@ const PlacesNav = () => {
               </div>
             </div>
             <div className="w-full flex px-5 items-center justify-center">
-              <span className="text-base text-gray-800">Developed by Arun Katoch</span>
+              <span className="text-base text-gray-800">
+                Developed by Arun Katoch
+              </span>
             </div>
           </div>
         )}

@@ -1,4 +1,5 @@
 import React from "react";
+import data from "../data";
 import { BiSearch } from "react-icons/bi";
 
 const BottomNav = ({
@@ -14,11 +15,24 @@ const BottomNav = ({
   experienceTab,
   setNavBg,
   input,
+  searchSuggestionsFunctionality,
   checkIn,
   checkOut,
   fullDate,
   guests,
+  setApiData,
 }) => {
+  const searchBtnClickHandler = (inputData) => {
+    const showSearchResults = data.filter((currElm) => {
+      return (
+        currElm.locationDetails.includes(inputData) ||
+        currElm.location.includes(inputData)
+      );
+    });
+    setApiData(showSearchResults);
+    setSearchsuggestionsDiv(false);
+  };
+
   return (
     <div className="w-screen absolute py-3 z-20 bg-white">
       <div className="w-full flex flex-col justify-center items-center gap-2 border  bg-gray-200 transition ease-linear duration-1000 sm:w-[55rem] sm:flex-row sm:h-16 sm:mx-auto sm:rounded-full ">
@@ -58,7 +72,9 @@ const BottomNav = ({
             name="search"
             value={input}
             onChange={searchInputClickHandler}
+            onKeyDown={searchSuggestionsFunctionality}
             placeholder="Search destinations"
+            autoComplete="off"
             className="w-3/4 pl-2 text-sm text-gray-600 border-none outline-none bg-transparent"
           />
         </div>
@@ -168,30 +184,30 @@ const BottomNav = ({
 
         {/* -------Nav Tab4-----  */}
 
-        <div
-          className={navBg.navTab4}
-          onClick={() => {
-            bottomNavTab3Details === "hide"
-              ? setBottomNavTab3Details("show")
-              : setBottomNavTab3Details("hide");
-            setBottomNavTab1Details("hide");
-            setBottomNavTab2Details("hide");
+        <div className={navBg.navTab4}>
+          <div
+            className="flex flex-col h-full justify-center"
+            onClick={() => {
+              bottomNavTab3Details === "hide"
+                ? setBottomNavTab3Details("show")
+                : setBottomNavTab3Details("hide");
+              setBottomNavTab1Details("hide");
+              setBottomNavTab2Details("hide");
 
-            setNavBg({
-              navTab1:
-                "w-80 h-full pl-4 hover:bg-gray-300 border flex flex-col rounded-full justify-center bg-transparent sm:pl-10",
-              navTab2:
-                "w-80 flex flex-col cursor-pointer hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
-              navTab3:
-                "w-80 flex flex-col cursor-pointer  hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
-              navTab4:
-                "w-80 flex gap-2 cursor-pointer h-full rounded-full pl-4 py-2 bg-white sm:w-64",
-              experienceNavTab:
-                "w-80 flex flex-col cursor-pointer  hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-64",
-            });
-          }}
-        >
-          <div className="flex flex-col h-full justify-center">
+              setNavBg({
+                navTab1:
+                  "w-80 h-full pl-4 hover:bg-gray-300 border flex flex-col rounded-full justify-center bg-transparent sm:pl-10",
+                navTab2:
+                  "w-80 flex flex-col cursor-pointer hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
+                navTab3:
+                  "w-80 flex flex-col cursor-pointer  hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-32",
+                navTab4:
+                  "w-80 flex gap-2 cursor-pointer h-full rounded-full pl-4 py-2 bg-white sm:w-64",
+                experienceNavTab:
+                  "w-80 flex flex-col cursor-pointer  hover:bg-gray-300 h-full rounded-full pl-4 justify-center bg-transparent sm:w-64",
+              });
+            }}
+          >
             <span className="pl-2 cursor-pointer text-sm">Who</span>
             <input
               type="text"
@@ -205,6 +221,9 @@ const BottomNav = ({
             type="search"
             name="search Btn"
             className="px-3 bg-mainColor border-none rounded-full flex justify-center items-center gap-5 text-white text-lg font-bold sm:gap-2 "
+            onClick={() => {
+              searchBtnClickHandler(input);
+            }}
           >
             <BiSearch className="text-white" />
             Search

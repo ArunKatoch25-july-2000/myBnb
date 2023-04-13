@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiGlobe, BiMenu } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
+import data from "../data";
 import logo from "../assets/logo.png";
 import OuterNav from "./OuterNav";
 import InnerNav from "./InnerNav";
@@ -21,12 +22,14 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
   const [bottomNavTab1Details, setBottomNavTab1Details] = useState("hide");
   const [searchsuggestionsDiv, setSearchsuggestionsDiv] = useState(false);
   const [input, setInput] = useState("");
+  const [searchFilter, setSearchFilter] = useState();
   const [bottomNavTab2Details, setBottomNavTab2Details] = useState("hide");
   const [bottomNavTab3Details, setBottomNavTab3Details] = useState("hide");
   const [checkIn, setCheckIn] = useState("Add dates");
   const [checkOut, setCheckOut] = useState("Add dates");
   const [fullDate, setFullDate] = useState("Add dates");
   const [guests, setGuests] = useState("Add guests");
+  const [apiData, setApiData] = useState(data);
   const [range, setRange] = useState([
     {
       startDate: new Date(),
@@ -81,10 +84,26 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
     setBottomNavTab1Details("hide");
   };
 
+  const searchSuggestionsFunctionality = () => {
+    const searchSuggestionFilter = data.filter((currElm) => {
+      if (currElm.location.includes(input)) {
+        return currElm;
+      }
+    });
+    setSearchFilter(searchSuggestionFilter);
+  };
+
+  // autocomplete suggestions click handler
+  const autocompleteSearchValue = (location) => {
+    setInput(location);
+    setSearchsuggestionsDiv(false);
+  };
+
   const tab2ClickHandler = () => {
     setInnerNav(true);
     setBottomNavTab2Details("show");
     setShowBottomNav("show");
+    setSearchsuggestionsDiv(false);
     setNavBg({
       navTab1:
         "w-80 h-full pl-4 hover:bg-gray-300 border flex flex-col rounded-full justify-center bg-transparent sm:pl-10",
@@ -99,6 +118,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
   const tab3ClickHandler = () => {
     setInnerNav(true);
     setShowBottomNav("show");
+    setSearchsuggestionsDiv(false);
     setBottomNavTab3Details("show");
     setNavBg({
       navTab1:
@@ -115,6 +135,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
     setInnerNav(true);
     setShowBottomNav("show");
     setBottomNavTab3Details("show");
+    setSearchsuggestionsDiv(false);
     setNavBg({
       navTab1:
         "w-80 h-full pl-4 hover:bg-gray-300 border flex flex-col rounded-full justify-center bg-transparent sm:pl-10",
@@ -131,6 +152,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
     setBottomNavTab1Details("hide");
     setBottomNavTab2Details("hide");
     setBottomNavTab3Details("hide");
+    setSearchsuggestionsDiv(false);
     setNavBg({
       navTab1:
         "w-80 h-full pl-4 border flex flex-col rounded-full justify-center bg-white sm:pl-10",
@@ -149,6 +171,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
     setBottomNavTab1Details("hide");
     setBottomNavTab2Details("hide");
     setBottomNavTab3Details("hide");
+    setSearchsuggestionsDiv(false);
     setNavBg({
       navTab1:
         "w-80 h-full pl-4 hover:bg-gray-300 border flex flex-col rounded-full justify-center bg-transparent  sm:pl-10",
@@ -233,6 +256,7 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
           setBottomNavTab1Details={setBottomNavTab1Details}
           searchInputClickHandler={searchInputClickHandler}
           input={input}
+          searchSuggestionsFunctionality={searchSuggestionsFunctionality}
           setSearchsuggestionsDiv={setSearchsuggestionsDiv}
           bottomNavTab2Details={bottomNavTab2Details}
           setBottomNavTab2Details={setBottomNavTab2Details}
@@ -244,6 +268,8 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
           checkOut={checkOut}
           fullDate={fullDate}
           guests={guests}
+          apiData={apiData}
+          setApiData={setApiData}
         />
       )}
 
@@ -251,7 +277,12 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
       {bottomNavTab1Details === "show" && (
         <BottomNavDestinationTabDetails bottomNavStyles={bottomNavStyles} />
       )}
-      {searchsuggestionsDiv && <SearchSuggestions input={input} />}
+      {searchsuggestionsDiv && (
+        <SearchSuggestions
+          searchFilter={searchFilter}
+          autocompleteSearchValue={autocompleteSearchValue}
+        />
+      )}
       {bottomNavTab2Details === "show" && (
         <BottomNavCheckInOut
           range={range}
@@ -271,7 +302,9 @@ const Navbar = ({ hidePlacesNav, placeDetailsOuterNav, bottomNavStyles }) => {
       )}
 
       {/* ------------------------ Places Navigation --------------------------*/}
-      {!hidePlacesNav && <PlacesNav />}
+      {!hidePlacesNav && (
+        <PlacesNav apiData={apiData} setApiData={setApiData} />
+      )}
     </div>
   );
 };
